@@ -1,0 +1,17 @@
+{
+    "_instructions": "Thay thế các link placeholder bên dưới bằng link MXH thật của bạn. Sau khi cập nhật xong, báo cho tôi để tôi sync vào trang web.",
+    "_example": "youtube: https://youtube.com/@tencuaban",
+
+    "youtube": "https://youtube.com/@minhcreator",
+    "tiktok": "https://tiktok.com/@minhcreator",
+    "facebook": "https://facebook.com/minhcreator",
+    "instagram": "https://instagram.com/minhcreator",
+    "threads": "https://threads.net/@minhcreator",
+    "twitter": "https://x.com/minhcreator",
+    "discord": "https://discord.gg/example",
+    "telegram": "https://t.me/minhcreator",
+    "zalo": "https://zalo.me/123456789",
+    "shopee": "https://shopee.vn/minhcreator",
+    "momo": "https://momo.vn/minhcreator",
+    "email": "minhcreator@email.com"
+}
