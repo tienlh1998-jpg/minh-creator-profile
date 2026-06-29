@@ -874,6 +874,9 @@
 
     // ========== EVENT LISTENERS ==========
     document.addEventListener('DOMContentLoaded', () => {
+        // Initialize theme icons and meta (IIFE only set class, not icons)
+        applyTheme(getPreferredTheme());
+
         // Theme toggle
         document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
