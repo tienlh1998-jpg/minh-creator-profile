@@ -371,6 +371,15 @@
         .theme-modal-overlay { background: var(--modal-overlay); }
         .theme-modal-panel { background: var(--modal-bg); border-color: var(--modal-border); }
         .theme-footer { background: var(--footer-bg); }
+        .theme-threads-bg { background: var(--threads-icon-bg); }
+        .theme-threads-icon { color: var(--threads-icon); }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .glitch-text:hover { animation: none !important; }
+            .pulse-dot { animation: none !important; }
+            .modal-panel { transition: none !important; }
+        }
 
         /* Multi-link Modal */
         .modal-overlay {
@@ -764,8 +773,13 @@
         applyTheme(newTheme);
     }
 
-    // Apply theme immediately (before DOM ready to prevent flash)
-    applyTheme(getPreferredTheme());
+    // Apply theme immediately (only toggle class, skip icon refs before DOM ready)
+    (function() {
+        const theme = getPreferredTheme();
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+    })();
 
     // ========== MULTI-LINK CONFIG ==========
     const platformLinks = {
