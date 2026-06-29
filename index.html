@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="dark" lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Minh Creator - Neon Sound. Cyberpunk content creator & neural content architect. Find all my social media links here." />
+    <meta property="og:title" content="Minh Creator - NEURAL_CONTENT_ARCHITECT" />
+    <meta property="og:description" content="Interfacing with the digital void. Find all my social media links." />
+    <meta property="og:type" content="website" />
+    <title>Minh Creator - NEURAL_CONTENT_ARCHITECT</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Fonts (single import, no duplicate) -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-highest": "#353534",
+                        "surface-variant": "#353534",
+                        "surface-dim": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#ba005b",
+                        "on-secondary-fixed-variant": "#004f53",
+                        "background": "#131313",
+                        "secondary": "#dcfdff",
+                        "tertiary-container": "#00a827",
+                        "primary": "#ffb1c4",
+                        "on-tertiary-fixed": "#002203",
+                        "on-background": "#e5e2e1",
+                        "secondary-fixed-dim": "#00dce6",
+                        "on-tertiary": "#003907",
+                        "surface-container": "#201f1f",
+                        "on-primary": "#65002e",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#5c3f46",
+                        "surface-tint": "#ffb1c4",
+                        "on-primary-fixed": "#3f001a",
+                        "error-container": "#93000a",
+                        "primary-container": "#ff4a8d",
+                        "on-tertiary-fixed-variant": "#00530e",
+                        "on-surface-variant": "#e5bcc5",
+                        "on-secondary-fixed": "#002022",
+                        "tertiary-fixed": "#72ff70",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#00e639",
+                        "surface-container-high": "#2a2a2a",
+                        "outline": "#ac878f",
+                        "primary-fixed-dim": "#ffb1c4",
+                        "surface-container-low": "#1c1b1b",
+                        "surface": "#131313",
+                        "surface-bright": "#3a3939",
+                        "tertiary": "#00e639",
+                        "secondary-fixed": "#6ff6ff",
+                        "secondary-container": "#00f1fd",
+                        "on-secondary": "#00373a",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary-container": "#006a6f",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#590028",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-container": "#003205",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-fixed": "#ffd9e1",
+                        "on-primary-fixed-variant": "#8f0044"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "640px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin-desktop": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Sora", "sans-serif"],
+                        "display-lg": ["Sora", "sans-serif"],
+                        "headline-lg": ["Sora", "sans-serif"],
+                        "body-md": ["Space Mono", "monospace"],
+                        "label-sm": ["JetBrains Mono", "monospace"],
+                        "headline-md": ["Sora", "sans-serif"],
+                        "body-lg": ["Space Mono", "monospace"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["36px", { "lineHeight": "1.1", "fontWeight": "800" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg": ["28px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["11px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Scanline overlay */
+        .scanlines {
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.08) 50%, rgba(0,0,0,0.08));
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        /* Glitch text on hover */
+        .glitch-text:hover {
+            animation: glitch-anim 0.2s linear infinite;
+        }
+        @keyframes glitch-anim {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+
+        /* HUD border with corner brackets */
+        .hud-border {
+            border: 1px solid theme('colors.secondary');
+            position: relative;
+        }
+        .hud-border::before, .hud-border::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border: 2px solid theme('colors.primary');
+        }
+        .hud-border::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+        .hud-border::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+        /* Clip corner */
+        .clip-corner {
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+        }
+
+        /* Glow hover effect */
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(0, 241, 253, 0.3);
+        }
+
+        /* Social card hover glow by platform */
+        .social-card-youtube:hover { box-shadow: 0 0 25px rgba(255, 0, 0, 0.4); border-color: #FF0000; }
+        .social-card-tiktok:hover { box-shadow: 0 0 25px rgba(0, 242, 254, 0.4); border-color: #00f2fe; }
+        .social-card-facebook:hover { box-shadow: 0 0 25px rgba(24, 119, 242, 0.4); border-color: #1877F2; }
+        .social-card-instagram:hover { box-shadow: 0 0 25px rgba(225, 48, 108, 0.4); border-color: #E1306C; }
+        .social-card-threads:hover { box-shadow: 0 0 25px rgba(255, 255, 255, 0.3); border-color: #ffffff; }
+        .social-card-twitter:hover { box-shadow: 0 0 25px rgba(29, 161, 242, 0.4); border-color: #1DA1F2; }
+        .social-card-discord:hover { box-shadow: 0 0 25px rgba(88, 101, 242, 0.4); border-color: #5865F2; }
+        .social-card-telegram:hover { box-shadow: 0 0 25px rgba(0, 136, 204, 0.4); border-color: #0088cc; }
+        .social-card-email:hover { box-shadow: 0 0 25px rgba(0, 230, 57, 0.4); border-color: #00e639; }
+        .social-card-zalo:hover { box-shadow: 0 0 25px rgba(0, 110, 255, 0.4); border-color: #006EFF; }
+        .social-card-shopee:hover { box-shadow: 0 0 25px rgba(238, 77, 45, 0.4); border-color: #EE4D2D; }
+        .social-card-momo:hover { box-shadow: 0 0 25px rgba(167, 51, 255, 0.4); border-color: #A733FF; }
+
+        /* Focus-visible for keyboard accessibility on social cards */
+        [class*="social-card"]:focus-visible {
+            outline: 2px solid theme('colors.secondary');
+            outline-offset: 2px;
+        }
+
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Pulse animation for status dot */
+        .pulse-dot {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 4px theme('colors.tertiary'); }
+            50% { box-shadow: 0 0 12px theme('colors.tertiary'), 0 0 24px theme('colors.tertiary-container'); }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background antialiased relative min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden">
+
+    <!-- Global Scanline Overlay -->
+    <div class="fixed inset-0 scanlines z-50 pointer-events-none"></div>
+
+    <!-- Minimal Top Navigation -->
+    <nav class="fixed top-0 w-full z-40 bg-background/80 backdrop-blur-xl border-b border-primary/20">
+        <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-3 max-w-container-max mx-auto">
+            <div class="font-headline-md text-headline-md text-primary glitch-text cursor-pointer tracking-tighter">
+                NEON_SNDCT
+            </div>
+            <a href="#connect" class="bg-primary text-on-primary font-label-sm text-label-sm tracking-widest uppercase px-5 py-2 clip-corner hover:shadow-[0_0_15px_rgba(255,177,196,0.8)] transition-all duration-300 active:scale-95">
+                CONNECT
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-20 pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
+
+        <!-- Hero Section (Compact) -->
+        <section class="relative w-full mb-8 text-center">
+            <!-- Avatar -->
+            <div class="mx-auto w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-secondary p-1 bg-surface-dim shadow-[0_0_30px_rgba(0,220,230,0.25)] mb-5 relative">
+                <img
+                    class="w-full h-full object-cover rounded-full mix-blend-luminosity hover:mix-blend-normal transition-all duration-500"
+                    alt="Minh Creator - Cyberpunk android portrait with glowing cyan sensors"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCab4zuPIXHeuY1HhhgFDRHtZMEUB8fErM6xCR4jS9sgiDsOvaL18vRld6IOGIjC3sxSKemlNttpccXu0Q2S2GOjulFW1QcU6FLAagwV8m_rRuQDAcS4WR17BcZNvdmeeRogLJnJM3lYN7PR0eNLiUKWQJTf0oX9AKEv2BFx8_LFcsPdNpMJt_3C9U6q9BqunTP4Zmyj8_EanFWzhyaawCsmpvH1AjAcXCyWn8okeaym-vNtHwraPsv_YgHYfUKh8YPxfn5SyEVBxwr"
+                />
+                <!-- Online indicator -->
+                <div class="absolute bottom-1 right-1 w-5 h-5 bg-tertiary rounded-full border-2 border-background pulse-dot"></div>
+            </div>
+
+            <!-- Identity -->
+            <h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-2 glitch-text cursor-pointer">
+                Minh Creator
+            </h1>
+            <div class="inline-block bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1 mb-4 clip-corner tracking-wider">
+                SYSTEM_ONLINE
+            </div>
+            <h2 class="font-headline-lg text-headline-lg text-primary tracking-widest mb-4">
+                NEURAL_CONTENT_ARCHITECT
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mx-auto opacity-70 border-l-2 border-secondary pl-4 text-left">
+                "Interfacing with the digital void to bring you stories from the frontier of code and creativity."
+            </p>
+        </section>
+
+        <!-- Divider -->
+        <div class="flex items-center gap-4 mb-8">
+            <div class="h-px bg-secondary flex-grow opacity-20"></div>
+            <h3 class="font-label-sm text-label-sm text-secondary tracking-[0.2em]">EXTERNAL_UPLINKS</h3>
+            <div class="h-px bg-secondary flex-grow opacity-20"></div>
+        </div>
+
+        <!-- Social Links Grid (Main Content - Large Cards) -->
+        <section class="mb-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <!-- YouTube -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                   class="social-card-youtube hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#FF0000]/10 clip-corner shrink-0">
+                        <span class="material-symbols-outlined text-[28px] text-[#FF0000] group-hover:scale-110 transition-transform">play_circle</span>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <div class="font-headline-md text-headline-md text-on-surface truncate">YouTube</div>
+                        <div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 mt-0.5">@minhcreator</div>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
+                </a>
+
+                <!-- TikTok -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                   class="social-card-tiktok hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#00f2fe]/10 clip-corner shrink-0">
+                        <span class="material-symbols-outlined text-[28px] text-[#00f2fe] group-hover:scale-110 transition-transform">music_note</span>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <div class="font-headline-md text-headline-md text-on-surface truncate">TikTok</div>
+                        <div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 mt-0.5">@minhcreator</div>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
+                </a>
+
+                <!-- Facebook -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                   class="social-card-facebook hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#1877F2]/10 clip-corner shrink-0">
+                        <span class="material-symbols-outlined text-[28px] text-[#1877F2] group-hover:scale-110 transition-transform">public</span>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <div class="font-headline-md text-headline-md text-on-surface truncate">Facebook</div>
+                        <div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 mt-0.5">Minh Creator</div>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
+                </a>
+
+                <!-- Instagram -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                   class="social-card-instagram hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#E1306C]/10 clip-corner shrink-0">
+                        <span class="material-symbols-outlined text-[28px] text-[#E1306C] group-hover:scale-110 transition-transform">photo_camera</span>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <div class="font-headline-md text-headline-md text-on-surface truncate">Instagram</div>
+                        <div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 mt-0.5">@minhcreator</div>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
+                </a>
+
+                <!-- Threads -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                   class="social-card-threads hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
+                    <div class="w-12 h-12 flex items-center justify-center bg-white/10 clip-corner shrink-0">
+                        <span class="material-symbols-outlined text-[28px] text-white group-hover:scale-110 transition-transform">forum</span>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <div class="font-headline-md text-headline-md text-on-surface truncate">Threads</div>
+                        <div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 mt-0.5">@minhcreator</div>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
+                </a>
+
+                <!-- X / Twitter -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                   class="social-card-twitter hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#1DA1F2]/10 clip-corner shrink-0">
+                        <span class="material-symbols-outlined text-[28px] text-[#1DA1F2] group-hover:scale-110 transition-transform">tag</span>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <div class="font-headline-md text-headline-md text-on-surface truncate">X / Twitter</div>
+                        <div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 mt-0.5">@minhcreator</div>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
+                </a>
+
+                <!-- Discord -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                   class="social-card-discord hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#5865F2]/10 clip-corner shrink-0">
+                        <span class="material-symbols-outlined text-[28px] text-[#5865F2] group-hover:scale-110 transition-transform">headset_mic</span>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <div class="font-headline-md text-headline-md text-on-surface truncate">Discord</div>
+                        <div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 mt-0.5">Join the server</div>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
+                </a>
+
+                <!-- Telegram -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                   class="social-card-telegram hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#0088cc]/10 clip-corner shrink-0">
+                        <span class="material-symbols-outlined text-[28px] text-[#0088cc] group-hover:scale-110 transition-transform">send</span>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <div class="font-headline-md text-headline-md text-on-surface truncate">Telegram</div>
+                        <div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 mt-0.5">@minhcreator</div>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
+                </a>
+
+                <!-- Zalo -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                   class="social-card-zalo hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#006EFF]/10 clip-corner shrink-0">
+                        <span class="material-symbols-outlined text-[28px] text-[#006EFF] group-hover:scale-110 transition-transform">chat_bubble</span>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <div class="font-headline-md text-headline-md text-on-surface truncate">Zalo</div>
+                        <div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 mt-0.5">Nhắn tin qua Zalo</div>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
+                </a>
+
+                <!-- Shopee -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                   class="social-card-shopee hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#EE4D2D]/10 clip-corner shrink-0">
+                        <span class="material-symbols-outlined text-[28px] text-[#EE4D2D] group-hover:scale-110 transition-transform">shopping_bag</span>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <div class="font-headline-md text-headline-md text-on-surface truncate">Shopee</div>
+                        <div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 mt-0.5">Gian hàng Shopee</div>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
+                </a>
+
+                <!-- MoMo -->
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                   class="social-card-momo hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
+                    <div class="w-12 h-12 flex items-center justify-center bg-[#A733FF]/10 clip-corner shrink-0">
+                        <span class="material-symbols-outlined text-[28px] text-[#A733FF] group-hover:scale-110 transition-transform">account_balance_wallet</span>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <div class="font-headline-md text-headline-md text-on-surface truncate">MoMo</div>
+                        <div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 mt-0.5">Ví MoMo</div>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="flex items-center gap-4 mb-8">
+            <div class="h-px bg-primary flex-grow opacity-20"></div>
+            <h3 class="font-label-sm text-label-sm text-primary tracking-[0.2em]">FEATURED_CONTENT</h3>
+            <div class="h-px bg-primary flex-grow opacity-20"></div>
+        </div>
+
+        <!-- Featured Video (Single Embed) -->
+        <section class="mb-12">
+            <div class="hud-border bg-surface-container/80 backdrop-blur-xl p-4 clip-corner glow-hover transition-all duration-300">
+                <div class="aspect-video bg-surface-dim relative overflow-hidden group">
+                    <!-- Placeholder: Replace with real YouTube embed -->
+                    <div class="w-full h-full flex flex-col items-center justify-center text-on-surface-variant opacity-50">
+                        <span class="material-symbols-outlined text-[48px] mb-2">play_circle</span>
+                        <span class="font-label-sm text-label-sm">FEATURED_VIDEO_PLACEHOLDER</span>
+                    </div>
+                    <div class="absolute inset-0 border border-primary/20 pointer-events-none group-hover:border-primary/60 transition-colors"></div>
+                </div>
+                <div class="mt-4 flex items-center justify-between">
+                    <h3 class="font-headline-md text-headline-md text-on-surface">Latest Creation</h3>
+                    <a href="#" target="_blank" class="inline-flex items-center font-label-sm text-label-sm text-secondary hover:text-primary transition-colors group/link">
+                        WATCH_NOW
+                        <span class="material-symbols-outlined ml-1 text-[16px] group-hover/link:translate-x-1 transition-transform">play_arrow</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect CTA Section -->
+        <section id="connect" class="text-center">
+            <div class="hud-border bg-surface-container/60 backdrop-blur-xl p-8 clip-corner">
+                <div class="inline-block bg-tertiary text-on-tertiary font-label-sm text-label-sm px-3 py-1 mb-4 clip-corner tracking-wider">
+                    OPEN_CHANNEL
+                </div>
+                <h3 class="font-headline-lg text-headline-lg text-on-surface mb-3">Let's Connect</h3>
+                <p class="font-body-lg text-body-lg text-on-surface-variant opacity-70 mb-6 max-w-md mx-auto">
+                    Collaboration inquiries, business opportunities, or just want to say hi?
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:your@email.com"
+                       class="social-card-email hud-border bg-surface-container/80 backdrop-blur-md px-6 py-3 font-label-sm text-label-sm tracking-widest uppercase text-secondary hover:text-on-secondary hover:bg-tertiary transition-all duration-300 clip-corner inline-flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">mail</span>
+                        EMAIL_ME
+                    </a>
+                    <a href="#"
+                       class="hud-border bg-surface-container/80 backdrop-blur-md px-6 py-3 font-label-sm text-label-sm tracking-widest uppercase text-secondary hover:text-on-secondary hover:bg-secondary transition-all duration-300 clip-corner inline-flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">chat</span>
+                        DM_ME
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-lowest w-full py-8 border-t border-secondary/10 z-10 relative">
+        <div class="flex flex-col items-center gap-4 max-w-container-max mx-auto px-margin-mobile">
+            <div class="font-headline-md text-headline-md text-primary tracking-tighter">
+                NEON_SNDCT
+            </div>
+            <div class="font-label-sm text-label-sm opacity-40 text-tertiary">
+                ©2026 NEON_SNDCT_OS // ALL_RIGHTS_RESERVED
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
