@@ -196,11 +196,6 @@
             clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
         }
 
-        /* Glow hover effect */
-        .glow-hover:hover {
-            box-shadow: 0 0 20px rgba(0, 241, 253, 0.3);
-        }
-
         /* Social card hover glow by platform */
         .social-card-youtube:hover { box-shadow: 0 0 25px rgba(255, 0, 0, 0.4); border-color: #FF0000; }
         .social-card-tiktok:hover { box-shadow: 0 0 25px rgba(0, 242, 254, 0.4); border-color: #00f2fe; }
@@ -506,7 +501,7 @@
     </footer>
 
     <!-- Multi-link Modal -->
-    <div id="link-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true">
+    <div id="link-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal()"></div>
         <div class="modal-panel relative w-full max-w-sm bg-surface-container/95 backdrop-blur-xl border border-secondary/30 clip-corner p-6 z-10">
             <div class="flex justify-between items-center mb-5">
@@ -584,7 +579,10 @@
         openModal(platform, links);
     }
 
+    let lastFocusedElement = null;
+
     function openModal(platform, links) {
+        lastFocusedElement = document.activeElement;
         const meta = platformMeta[platform] || { name: platform, color: '#ffb1c4' };
         document.getElementById('modal-title').textContent = meta.name;
         document.getElementById('modal-title').style.color = meta.color;
@@ -600,12 +598,35 @@
 
         document.getElementById('link-modal').classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        // Focus trap: move focus to first link in modal
+        const firstLink = container.querySelector('a');
+        if (firstLink) firstLink.focus();
     }
 
     function closeModal() {
         document.getElementById('link-modal').classList.remove('active');
         document.body.style.overflow = '';
+        // Restore focus to the card that triggered the modal
+        if (lastFocusedElement) lastFocusedElement.focus();
     }
+
+    // Focus trap: keep Tab inside modal when open
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') { closeModal(); return; }
+        if (e.key !== 'Tab') return;
+        const modal = document.getElementById('link-modal');
+        if (!modal.classList.contains('active')) return;
+        const focusable = modal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+            if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+            if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+    });
 
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
