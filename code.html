@@ -232,6 +232,32 @@
             0%, 100% { box-shadow: 0 0 4px theme('colors.tertiary'); }
             50% { box-shadow: 0 0 12px theme('colors.tertiary'), 0 0 24px theme('colors.tertiary-container'); }
         }
+
+        /* Multi-link Modal */
+        .modal-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-panel {
+            transform: translateY(20px) scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-panel {
+            transform: translateY(0) scale(1);
+        }
+        .modal-link-item {
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+        .modal-link-item:hover {
+            border-color: theme('colors.primary');
+            box-shadow: 0 0 15px rgba(255, 177, 196, 0.2);
+        }
     </style>
 </head>
 
@@ -295,7 +321,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
                 <!-- YouTube -->
-                <a href="#" target="_blank" rel="noopener noreferrer"
+                <a href="#" data-platform="youtube"
                    class="social-card-youtube hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
                     <div class="w-12 h-12 flex items-center justify-center bg-[#FF0000]/10 clip-corner shrink-0">
                         <span class="material-symbols-outlined text-[28px] text-[#FF0000] group-hover:scale-110 transition-transform">play_circle</span>
@@ -308,7 +334,7 @@
                 </a>
 
                 <!-- TikTok -->
-                <a href="#" target="_blank" rel="noopener noreferrer"
+                <a href="#" data-platform="tiktok"
                    class="social-card-tiktok hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
                     <div class="w-12 h-12 flex items-center justify-center bg-[#00f2fe]/10 clip-corner shrink-0">
                         <span class="material-symbols-outlined text-[28px] text-[#00f2fe] group-hover:scale-110 transition-transform">music_note</span>
@@ -321,7 +347,7 @@
                 </a>
 
                 <!-- Facebook -->
-                <a href="#" target="_blank" rel="noopener noreferrer"
+                <a href="#" data-platform="facebook"
                    class="social-card-facebook hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
                     <div class="w-12 h-12 flex items-center justify-center bg-[#1877F2]/10 clip-corner shrink-0">
                         <span class="material-symbols-outlined text-[28px] text-[#1877F2] group-hover:scale-110 transition-transform">public</span>
@@ -334,7 +360,7 @@
                 </a>
 
                 <!-- Instagram -->
-                <a href="#" target="_blank" rel="noopener noreferrer"
+                <a href="#" data-platform="instagram"
                    class="social-card-instagram hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
                     <div class="w-12 h-12 flex items-center justify-center bg-[#E1306C]/10 clip-corner shrink-0">
                         <span class="material-symbols-outlined text-[28px] text-[#E1306C] group-hover:scale-110 transition-transform">photo_camera</span>
@@ -347,7 +373,7 @@
                 </a>
 
                 <!-- Threads -->
-                <a href="#" target="_blank" rel="noopener noreferrer"
+                <a href="#" data-platform="threads"
                    class="social-card-threads hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
                     <div class="w-12 h-12 flex items-center justify-center bg-white/10 clip-corner shrink-0">
                         <span class="material-symbols-outlined text-[28px] text-white group-hover:scale-110 transition-transform">forum</span>
@@ -360,7 +386,7 @@
                 </a>
 
                 <!-- X / Twitter -->
-                <a href="#" target="_blank" rel="noopener noreferrer"
+                <a href="#" data-platform="twitter"
                    class="social-card-twitter hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
                     <div class="w-12 h-12 flex items-center justify-center bg-[#1DA1F2]/10 clip-corner shrink-0">
                         <span class="material-symbols-outlined text-[28px] text-[#1DA1F2] group-hover:scale-110 transition-transform">tag</span>
@@ -373,7 +399,7 @@
                 </a>
 
                 <!-- Discord -->
-                <a href="#" target="_blank" rel="noopener noreferrer"
+                <a href="#" data-platform="discord"
                    class="social-card-discord hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
                     <div class="w-12 h-12 flex items-center justify-center bg-[#5865F2]/10 clip-corner shrink-0">
                         <span class="material-symbols-outlined text-[28px] text-[#5865F2] group-hover:scale-110 transition-transform">headset_mic</span>
@@ -386,7 +412,7 @@
                 </a>
 
                 <!-- Telegram -->
-                <a href="#" target="_blank" rel="noopener noreferrer"
+                <a href="#" data-platform="telegram"
                    class="social-card-telegram hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
                     <div class="w-12 h-12 flex items-center justify-center bg-[#0088cc]/10 clip-corner shrink-0">
                         <span class="material-symbols-outlined text-[28px] text-[#0088cc] group-hover:scale-110 transition-transform">send</span>
@@ -399,7 +425,7 @@
                 </a>
 
                 <!-- Zalo -->
-                <a href="#" target="_blank" rel="noopener noreferrer"
+                <a href="#" data-platform="zalo"
                    class="social-card-zalo hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
                     <div class="w-12 h-12 flex items-center justify-center bg-[#006EFF]/10 clip-corner shrink-0">
                         <span class="material-symbols-outlined text-[28px] text-[#006EFF] group-hover:scale-110 transition-transform">chat_bubble</span>
@@ -412,7 +438,7 @@
                 </a>
 
                 <!-- Shopee -->
-                <a href="#" target="_blank" rel="noopener noreferrer"
+                <a href="#" data-platform="shopee"
                    class="social-card-shopee hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
                     <div class="w-12 h-12 flex items-center justify-center bg-[#EE4D2D]/10 clip-corner shrink-0">
                         <span class="material-symbols-outlined text-[28px] text-[#EE4D2D] group-hover:scale-110 transition-transform">shopping_bag</span>
@@ -425,7 +451,7 @@
                 </a>
 
                 <!-- MoMo -->
-                <a href="#" target="_blank" rel="noopener noreferrer"
+                <a href="#" data-platform="momo"
                    class="social-card-momo hud-border bg-surface-container/60 backdrop-blur-md p-5 flex items-center gap-4 hover:bg-surface-container-high transition-all duration-300 group clip-corner">
                     <div class="w-12 h-12 flex items-center justify-center bg-[#A733FF]/10 clip-corner shrink-0">
                         <span class="material-symbols-outlined text-[28px] text-[#A733FF] group-hover:scale-110 transition-transform">account_balance_wallet</span>
@@ -478,6 +504,125 @@
             </div>
         </div>
     </footer>
+
+    <!-- Multi-link Modal -->
+    <div id="link-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="modal-panel relative w-full max-w-sm bg-surface-container/95 backdrop-blur-xl border border-secondary/30 clip-corner p-6 z-10">
+            <div class="flex justify-between items-center mb-5">
+                <h3 id="modal-title" class="font-headline-md text-headline-md text-primary"></h3>
+                <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" aria-label="Close">
+                    <span class="material-symbols-outlined text-[20px]">close</span>
+                </button>
+            </div>
+            <div id="modal-links" class="space-y-3">
+                <!-- Links injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Multi-link config: maps platform names to arrays of {label, url}
+    const platformLinks = {
+        youtube: [
+            { label: "K\u1EBFnh YouTube ch\xEDnh", url: "https://youtube.com/@minhcreator" }
+        ],
+        tiktok: [
+            { label: "TikTok", url: "https://tiktok.com/@minhcreator" }
+        ],
+        facebook: [
+            { label: "Facebook c\xE1 nh\xE2n", url: "https://facebook.com/minhcreator" }
+        ],
+        instagram: [
+            { label: "Instagram", url: "https://instagram.com/@minhcreator" }
+        ],
+        threads: [
+            { label: "Threads", url: "https://threads.net/@minhcreator" }
+        ],
+        twitter: [
+            { label: "X / Twitter", url: "https://x.com/@minhcreator" }
+        ],
+        discord: [
+            { label: "Discord Server", url: "https://discord.gg/example" }
+        ],
+        telegram: [
+            { label: "Telegram", url: "https://t.me/minhcreator" }
+        ],
+        zalo: [
+            { label: "Zalo", url: "https://zalo.me/123456789" }
+        ],
+        shopee: [
+            { label: "Gian h\xE0ng Shopee", url: "https://shopee.vn/minhcreator" }
+        ],
+        momo: [
+            { label: "V\xED MoMo", url: "https://momo.vn/minhcreator" }
+        ]
+    };
+
+    // Platform display names & colors
+    const platformMeta = {
+        youtube:  { name: "YouTube",          color: "#FF0000" },
+        tiktok:   { name: "TikTok",           color: "#00f2fe" },
+        facebook: { name: "Facebook",         color: "#1877F2" },
+        instagram:{ name: "Instagram",        color: "#E1306C" },
+        threads:  { name: "Threads",          color: "#ffffff" },
+        twitter:  { name: "X / Twitter",      color: "#1DA1F2" },
+        discord:  { name: "Discord",          color: "#5865F2" },
+        telegram: { name: "Telegram",         color: "#0088cc" },
+        zalo:     { name: "Zalo",             color: "#006EFF" },
+        shopee:   { name: "Shopee",           color: "#EE4D2D" },
+        momo:     { name: "MoMo",             color: "#A733FF" }
+    };
+
+    function handlePlatformClick(platform) {
+        const links = platformLinks[platform];
+        if (!links || links.length === 0) return;
+        if (links.length === 1) {
+            window.open(links[0].url, '_blank', 'noopener,noreferrer');
+            return;
+        }
+        openModal(platform, links);
+    }
+
+    function openModal(platform, links) {
+        const meta = platformMeta[platform] || { name: platform, color: '#ffb1c4' };
+        document.getElementById('modal-title').textContent = meta.name;
+        document.getElementById('modal-title').style.color = meta.color;
+
+        const container = document.getElementById('modal-links');
+        container.innerHTML = links.map(link => `
+            <a href="${link.url}" target="_blank" rel="noopener noreferrer"
+               class="modal-link-item block bg-surface-container/60 p-4 clip-corner">
+                <div class="font-headline-md text-headline-md text-on-surface truncate mb-1">${link.label}</div>
+                <div class="font-label-sm text-label-sm truncate opacity-50" style="color: ${meta.color}">${link.url}</div>
+            </a>
+        `).join('');
+
+        document.getElementById('link-modal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        document.getElementById('link-modal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    // Initialize social cards
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[data-platform]').forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                handlePlatformClick(card.dataset.platform);
+            });
+            card.style.cursor = 'pointer';
+        });
+    });
+    </script>
 
 </body>
 </html>

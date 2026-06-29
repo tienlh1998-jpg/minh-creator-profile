@@ -1,17 +1,39 @@
 {
-    "_instructions": "Thay thế các link placeholder bên dưới bằng link MXH thật của bạn. Sau khi cập nhật xong, báo cho tôi để tôi sync vào trang web.",
-    "_example": "youtube: https://youtube.com/@tencuaban",
+    "_instructions": "Mỗi platform có thể có nhiều link. Dùng array nếu có nhiều link, string nếu chỉ có 1 link. Khi click card, nếu có nhiều link sẽ hiện popup.",
+    "_example": "youtube: [{\"label\": \"Kênh chính\", \"url\": \"https://...\"}, {\"label\": \"Kênh phụ\", \"url\": \"https://...\"}]",
 
-    "youtube": "https://youtube.com/@minhcreator",
-    "tiktok": "https://tiktok.com/@minhcreator",
-    "facebook": "https://facebook.com/minhcreator",
-    "instagram": "https://instagram.com/minhcreator",
-    "threads": "https://threads.net/@minhcreator",
-    "twitter": "https://x.com/minhcreator",
-    "discord": "https://discord.gg/example",
-    "telegram": "https://t.me/minhcreator",
-    "zalo": "https://zalo.me/123456789",
-    "shopee": "https://shopee.vn/minhcreator",
-    "momo": "https://momo.vn/minhcreator",
+    "youtube": [
+        {"label": "Kênh YouTube chính", "url": "https://youtube.com/@minhcreator"}
+    ],
+    "tiktok": [
+        {"label": "TikTok", "url": "https://tiktok.com/@minhcreator"}
+    ],
+    "facebook": [
+        {"label": "Facebook cá nhân", "url": "https://facebook.com/minhcreator"}
+    ],
+    "instagram": [
+        {"label": "Instagram", "url": "https://instagram.com/minhcreator"}
+    ],
+    "threads": [
+        {"label": "Threads", "url": "https://threads.net/@minhcreator"}
+    ],
+    "twitter": [
+        {"label": "X / Twitter", "url": "https://x.com/minhcreator"}
+    ],
+    "discord": [
+        {"label": "Discord Server", "url": "https://discord.gg/example"}
+    ],
+    "telegram": [
+        {"label": "Telegram", "url": "https://t.me/minhcreator"}
+    ],
+    "zalo": [
+        {"label": "Zalo", "url": "https://zalo.me/123456789"}
+    ],
+    "shopee": [
+        {"label": "Gian hàng Shopee", "url": "https://shopee.vn/minhcreator"}
+    ],
+    "momo": [
+        {"label": "Ví MoMo", "url": "https://momo.vn/minhcreator"}
+    ],
     "email": "minhcreator@email.com"
 }
